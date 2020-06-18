@@ -11,7 +11,6 @@ also installs detectron2 with a few simple commands.
 - [torchvision](https://github.com/pytorch/vision/) that matches the PyTorch installation.
   You can install them together at [pytorch.org](https://pytorch.org) to make sure of this.
 - OpenCV, optional, needed by demo and visualization
-- pycocotools: `pip install cython; pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
 
 
 ### Build Detectron2 from Source
@@ -69,7 +68,7 @@ Click each issue for its solutions:
 
 <details>
 <summary>
-Undefined torch/aten/caffe2 symbols; missing torch dynamic libraries; segmentation fault immediately when using detectron2.
+Undefined TH,torch,aten,caffe2 symbols; missing torch dynamic libraries; segmentation fault immediately when using detectron2.
 </summary>
 <br/>
 
@@ -140,7 +139,7 @@ Two possibilities:
   you need to either install a different build of PyTorch (or build by yourself)
   to match your local CUDA installation, or install a different version of CUDA to match PyTorch.
 
-* Detectron2 or PyTorch/torchvision is not built for the correct GPU architecture (compute compatibility).
+* Detectron2 or PyTorch/torchvision is not built for the correct GPU architecture (aka. compute compatibility).
 
   The GPU architecture for PyTorch/detectron2/torchvision is available in the "architecture flags" in
   `python -m detectron2.utils.collect_env`.
@@ -193,8 +192,21 @@ C++ compilation errors from NVCC
 <br/>
 Please build and install detectron2 following the instructions above.
 
-If you are running code from detectron2's root directory, `cd` to a different one.
+Or, if you are running code from detectron2's root directory, `cd` to a different one.
 Otherwise you may not import the code that you installed.
+</details>
+
+
+<details>
+<summary>
+Any issue on windows.
+</summary>
+<br/>
+
+Although detectron2 can be installed on windows with some effort (similar to [these](https://github.com/facebookresearch/pytorch3d/blob/master/INSTALL.md#2-install-from-a-local-clone)),
+we do not provide official support for it.
+
+PRs that improves code compatibility on windows are welcome.
 </details>
 
 <details>
