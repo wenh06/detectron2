@@ -1,4 +1,4 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+# Copyright (c) Facebook, Inc. and its affiliates.
 import contextlib
 import io
 import logging
@@ -6,11 +6,11 @@ import os
 from collections import defaultdict
 from dataclasses import dataclass
 from typing import Any, Dict, Iterable, List, Optional
-from fvcore.common.file_io import PathManager
 from fvcore.common.timer import Timer
 
 from detectron2.data import DatasetCatalog, MetadataCatalog
 from detectron2.structures import BoxMode
+from detectron2.utils.file_io import PathManager
 
 from ..utils import maybe_prepend_base_path
 
@@ -47,6 +47,26 @@ DATASETS = [
         name="densepose_coco_2014_valminusminival",
         images_root="coco/val2014",
         annotations_fpath="coco/annotations/densepose_valminusminival2014.json",
+    ),
+    CocoDatasetInfo(
+        name="densepose_coco_2014_train_cse",
+        images_root="coco/train2014",
+        annotations_fpath="coco_cse/densepose_train2014_cse.json",
+    ),
+    CocoDatasetInfo(
+        name="densepose_coco_2014_minival_cse",
+        images_root="coco/val2014",
+        annotations_fpath="coco_cse/densepose_minival2014_cse.json",
+    ),
+    CocoDatasetInfo(
+        name="densepose_coco_2014_minival_100_cse",
+        images_root="coco/val2014",
+        annotations_fpath="coco_cse/densepose_minival2014_100_cse.json",
+    ),
+    CocoDatasetInfo(
+        name="densepose_coco_2014_valminusminival_cse",
+        images_root="coco/val2014",
+        annotations_fpath="coco_cse/densepose_valminusminival2014_cse.json",
     ),
     CocoDatasetInfo(
         name="densepose_chimps",

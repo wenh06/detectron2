@@ -1,4 +1,4 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+# Copyright (c) Facebook, Inc. and its affiliates.
 import math
 import fvcore.nn.weight_init as weight_init
 import torch.nn.functional as F
@@ -47,6 +47,7 @@ class FPN(Backbone):
         """
         super(FPN, self).__init__()
         assert isinstance(bottom_up, Backbone)
+        assert in_features, in_features
 
         # Feature map strides and channels from the bottom up network (e.g. ResNet)
         input_shapes = bottom_up.output_shape()
